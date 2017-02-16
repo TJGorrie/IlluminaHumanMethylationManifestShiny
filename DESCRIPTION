@@ -1,0 +1,17 @@
+Package: IlluminaManifestShiny
+Type: Package
+Title: Illumina HumanMethylation Manifest with shiny UI
+Version: 0.0.1
+Date: 2017-02-16
+Authors@R: c(
+    person(c("Tyler", "J."), "Gorrie-Stone", role=c("cre", "aut"), email="tgorri@essex.ac.uk"),
+    person(c("Chris", "T."), "Clarkson", role=("aut"))
+    )
+Description: Interactive Shiny App for browsing Illumina EPIC manifest.
+License: GPL-3
+Depends: R (>= 3.3), minfi, IlluminaHumanMethylationEPICanno.ilm10b2.hg19, shiny, data.table
+LazyLoad: yes
+Collate: app.R
+biocViews: DNAMethylation, Microarray, TwoChannel, Preprocessing,
+        QualityControl, MethylationArray, DataImport, CpGIsland
+NeedsCompilation: no

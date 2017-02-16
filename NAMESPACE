@@ -1,0 +1,3 @@
+exportPattern("init")
+importFrom("utils", "data")
+import(minfi, IlluminaHumanMethylationEPICanno.ilm10b2.hg19, shiny, data.table)
