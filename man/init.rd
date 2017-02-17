@@ -7,9 +7,11 @@ Launch ShinyApp for Illumina HumanMethylationEPIC manifest
 Initialises the launch of a manifest of the EPIC array for convenient browsing of manifest.
 }
 \usage{
-init()
+init(manifest)
 }
-
+\arguments{
+\item{manifest}{Either "450k" or "EPIC"}
+}
 \author{
 Tyler Gorrie-Stone
 Who to contact: <tgorri@essex.ac.uk>

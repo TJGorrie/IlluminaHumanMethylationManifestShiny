@@ -1,3 +1,7 @@
 exportPattern("init")
 importFrom("utils", "data")
-import(IlluminaHumanMethylationEPICanno.ilm10b2.hg19, shiny, data.table)
+import(
+IlluminaHumanMethylationEPICanno.ilm10b2.hg19,
+IlluminaHumanMethylation450kanno.ilmn12.hg19,
+shiny,
+data.table)
