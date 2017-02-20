@@ -9,10 +9,9 @@ Authors@R: c(
     )
 Description: Interactive Shiny App for browsing Illumina EPIC manifest.
 License: GPL-3
-Depends: R (>= 3.3),
-    shiny,
-    data.table,
-    IlluminaHumanMethylation450kanno.ilmn12.hg19, IlluminaHumanMethylationEPICanno.ilm10b2.hg19,
+Depends: R (>= 3.3)
+Imports: shiny, data.table, minfi
+Suggests: IlluminaHumanMethylation450kanno.ilmn12.hg19, IlluminaHumanMethylationEPICanno.ilm10b2.hg19
 LazyLoad: yes
 Collate: app.R
 biocViews: DNAMethylation

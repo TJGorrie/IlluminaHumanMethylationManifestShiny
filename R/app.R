@@ -1,23 +1,36 @@
 init <- function(manifest = c('epic','450k')){
-    switch(match.arg(manifest),
-        'epic' = function(){
-            pkgname = 'IlluminaHumanMethylationEPICanno.ilm10b2.hg19'
-            data(package = pkgname, Locations)
-            data(package = pkgname, Islands.UCSC)
-            data(package = pkgname, Other)
+    manifest <- match.arg(manifest)
+    pkg1 <- 'IlluminaHumanMethylationEPICanno.ilm10b2.hg19'
+    pkg2 <- 'IlluminaHumanMethylation450kanno.ilmn12.hg19'
+    loaded <- loadedNamespaces()
+    if(pkg1 %in% loaded & pkg2 %in% loaded){
+        switch(manifest,
+            # Detach 450k
+            'epic' = detach(paste0('package:', pkg1), character.only = TRUE),
+            # Detach EPIC
+            '450k' = detach(paste0('package:', pkg2), character.only = TRUE)
+        )
+    }
+    switch(manifest,
+        'epic' =
+            if(requireNamespace(pkg1)){
+            Locations <- minfi::getAnnotation(pkg1, "Locations")
+            Islands.UCSC <- minfi::getAnnotation(pkg1, "Islands.UCSC")
+            Other <- minfi::getAnnotation(pkg1, "Other")
         },
-        '450k' = function(){
-            pkgname = 'IlluminaHumanMethylation450kanno.ilmn12.hg19'
-            data(package = pkgname, Locations)
-            data(package = pkgname, Islands.UCSC)
-            data(package = pkgname, Other)
+        '450k' =
+            if(requireNamespace(pkg2)){
+            Locations <- minfi::getAnnotation(pkg2, "Locations")
+            Islands.UCSC <- minfi::getAnnotation(pkg2, "Islands.UCSC")
+            Other <- minfi::getAnnotation(pkg2, "Other")
         }
+
     )
     shinyApp(ui, server)
 }
 
-ui <- fluidPage(
-    title = 'Illumina EPIC Array Manifest',
+ui <- function() fluidPage(
+    title = 'Illumina HumanMethylation Array Manifest',
     sidebarLayout(
         sidebarPanel(
             conditionalPanel(
