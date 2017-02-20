@@ -59,6 +59,10 @@ ui <- function() fluidPage(
                     names(Other),
                     selected = NULL
                 )
+            ),
+            conditionalPanel(
+                'input.dataset === "Combo" ',
+                downloadButton('downloadData', 'Download')
             )
         ),
         mainPanel(
@@ -96,11 +100,24 @@ server <- function(input, output){
             )
         )
     )
-    output$outtable <- renderDataTable({
+
+    selectedData <- reactive({
         cbind(
             as.data.table(rownames(Locations)),
             Locations[, input$show_vars, drop = FALSE],
             Islands.UCSC[, input$show_vars2, drop = FALSE],
             Other[, input$show_vars3, drop = FALSE])
+        })
+
+    output$outtable <- renderDataTable({
+selectedData()
     })
+
+
+    output$downloadData <- downloadHandler(
+    filename = function() {paste('SelectedRows', '.csv', sep='') },
+    content = function(file) {
+      write.csv(selectedData(), file)
+    }
+  )
 }
