@@ -1,7 +1,7 @@
-Package: IlluminaManifestShiny
+Package: IlluminaHumanMethylationManifestShiny
 Type: Package
 Title: Illumina HumanMethylation Manifest with shiny UI
-Version: 0.0.3
+Version: 0.0.4
 Date: 2017-02-17
 Authors@R: c(
     person(c("Tyler", "J."), "Gorrie-Stone", role=c("cre", "aut"), email="tgorri@essex.ac.uk"),
@@ -9,8 +9,7 @@ Authors@R: c(
     )
 Description: Interactive Shiny App for browsing Illumina EPIC manifest.
 License: GPL-3
-Depends: R (>= 3.3)
-Imports: shiny, data.table, minfi
+Depends: R (>= 3.3), shiny, data.table, minfi
 Suggests: IlluminaHumanMethylation450kanno.ilmn12.hg19, IlluminaHumanMethylationEPICanno.ilm10b2.hg19
 LazyLoad: yes
 Collate: app.R

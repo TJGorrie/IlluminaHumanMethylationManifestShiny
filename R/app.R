@@ -57,9 +57,10 @@ ui <- function() fluidPage(
                     'show_vars3',
                     'Columns',
                     names(Other),
-                    selected = NULL)
+                    selected = NULL
                 )
-            ),
+            )
+        ),
         mainPanel(
             tabsetPanel(
                 id = 'dataset',
