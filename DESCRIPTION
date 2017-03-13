@@ -4,8 +4,7 @@ Title: Illumina HumanMethylation Manifest with shiny UI
 Version: 0.0.4
 Date: 2017-02-17
 Authors@R: c(
-    person(c("Tyler", "J."), "Gorrie-Stone", role=c("cre", "aut"), email="tgorri@essex.ac.uk"),
-    person(c("Chris", "T."), "Clarkson", role=("aut"))
+    person(c("Tyler", "J."), "Gorrie-Stone", role=c("cre", "aut"), email="tgorri@essex.ac.uk")
     )
 Description: Interactive Shiny App for browsing Illumina EPIC manifest.
 License: GPL-3
