@@ -83,17 +83,36 @@ server <- function(input, output){
             as.data.table(rownames(Locations)),
             Locations[, input$show_vars, drop = FALSE]
         )
-    })
+    }, options = list(
+        filter='top',
+        selection='multiple',
+        autoWidth = TRUE,
+        ColumnDefs = list(
+                list(width = "50px", targets = c(1:28) )
+            )
+        )
+    )
     output$mytable2 <- renderDataTable({
         cbind(
             as.data.table(rownames(Islands.UCSC)),
-            Islands.UCSC[, input$show_vars2, drop = FALSE])
-    })
+            Islands.UCSC[, input$show_vars2, drop = FALSE]
+        )
+    }, options = list(
+        filter='top',
+        selection='multiple',
+        autoWidth = TRUE,
+        ColumnDefs = list(
+                list(width = "50px", targets = c(1:28) )
+            )
+        )
+    )
     output$mytable3 <- renderDataTable({
         cbind(
             as.data.table(rownames(Other)),
             Other[,input$show_vars3, drop = FALSE])
     }, options = list(
+        filter='top',
+        selection='multiple',
         autoWidth = TRUE,
         ColumnDefs = list(
                 list(width = "50px", targets = c(1:28) )
@@ -111,7 +130,15 @@ server <- function(input, output){
 
     output$outtable <- renderDataTable({
 selectedData()
-    })
+    }, options = list(
+        filter='top',
+        selection='multiple',
+        autoWidth = TRUE,
+        ColumnDefs = list(
+                list(width = "50px", targets = c(1:28) )
+            )
+        )
+    )
 
 
     output$downloadData <- downloadHandler(
